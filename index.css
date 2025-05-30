@@ -520,7 +520,7 @@ body:not(.user-is-tabbing) a:focus {
     display: flex;
     /*justify-content: space-between;*/
     justify-content: space-evenly;
-    filter: invert(100%) grayscale(100%) opacity(.8);
+    filter: invert(100%) grayscale(100%);
 }
 
 .client__logo {
