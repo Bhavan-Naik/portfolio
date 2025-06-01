@@ -567,6 +567,28 @@ body:not(.user-is-tabbing) a:focus {
   margin-top: 40px;
 }
 
+.gcp-grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  justify-items: center;
+}
+
+.gcp-grid-item {
+  text-align: center;
+}
+
+.gcp-grid-item img {
+  width: 300px;
+  height: auto;
+  object-fit: contain;
+}
+
+.center-alone {
+  grid-column: 2 / span 1;
+}
+
+
 @media(max-width: 1240px) {
     .client__logos {
         overflow-x: scroll;
