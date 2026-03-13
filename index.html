@@ -29,17 +29,12 @@
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
 
+  <script src="/js/constants.js"></script>
   <script>
-  const RESUME_URL = "https://drive.google.com/file/d/1Xo5ZyECwB7Erqbot7vudJETmSpH7WB80/preview";
-  if (window.location.pathname.startsWith("/resume")) {
-    window.location.replace(RESUME_URL);
-  }
-
   document.addEventListener("DOMContentLoaded", () => {
     const link = document.getElementById("resume-link");
     if (link) link.href = RESUME_URL;
   });
-
   </script>
 
   <!-- ***** Header ***** -->

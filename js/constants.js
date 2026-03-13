@@ -1,0 +1,1 @@
+const RESUME_URL = "https://drive.google.com/file/d/1Xo5ZyECwB7Erqbot7vudJETmSpH7WB80/preview";
