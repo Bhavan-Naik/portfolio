@@ -29,6 +29,13 @@
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
 
+  const RESUME_URL = "https://drive.google.com/file/d/1Xo5ZyECwB7Erqbot7vudJETmSpH7WB80/preview";
+  <script>
+  if (window.location.pathname.startsWith("/resume")) {
+    window.location.replace(RESUME_URL);
+  }
+  </script>
+
   <!-- ***** Header ***** -->
 
   <header class="header" role="banner" id="top">
@@ -173,7 +180,7 @@
               - Proven track record in building reliable and scalable systems along with automating critical workflows. <br><br>
               - Passionate about solving real-world problems through clean, efficient code, and continuously learning new technologies.<br><br>
             </p>
-            <a href="https://drive.google.com/file/d/1Xo5ZyECwB7Erqbot7vudJETmSpH7WB80/view" target="_blank_" class="btn">Resume</a>
+            <a href="RESUME_URL" target="_blank_" class="btn">Resume</a>
           </div>
 
           <div class="about__photo-container">
