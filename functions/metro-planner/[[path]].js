@@ -2,7 +2,7 @@ export async function onRequest(context) {
   const { request } = context;
   const url = new URL(request.url);
 
-  const targetBase = "https://metro-planner.onrender.com";
+  const targetBase = "https://metro-planner-do4a.onrender.com/";
 
   // ALWAYS forward to root app
   const targetURL = targetBase + url.pathname.replace("/metro-planner/blr", "");
