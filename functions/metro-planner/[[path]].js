@@ -2,30 +2,37 @@ export async function onRequest(context) {
   const { request, params } = context;
   const url = new URL(request.url);
 
-  // /blr, /mum, etc.
-  const city = params.path;
-
   const ROUTES = {
-    blr: "https://metro-planner-do4a.onrender.com/",
+    blr: "https://metro-planner-do4a.onrender.com/"
   };
 
+  const city = params.path;
   const targetBase = ROUTES[city];
 
-  // if city not configured yet
   if (!targetBase) {
     return new Response("City not available yet", { status: 404 });
   }
 
-  // remove /metro-planner/blr → "/"
-  const newPath = url.pathname.replace(`/metro-planner/${city}`, "");
+  const pathAfterCity =
+    url.pathname.replace(`/metro-planner/${city}`, "");
 
-  const targetURL = targetBase + (newPath || "/") + url.search;
+  const targetURL =
+    targetBase + (pathAfterCity || "/") + url.search;
 
-  const modifiedRequest = new Request(targetURL, {
-    method: request.method,
-    headers: request.headers,
-    body: request.body
-  });
+  try {
+    const response = await fetch(targetURL, {
+      method: request.method,
+      headers: request.headers,
+      body: request.method === "GET" || request.method === "HEAD"
+        ? undefined
+        : request.body,
+    });
 
-  return fetch(modifiedRequest);
+    return response;
+
+  } catch (err) {
+    return new Response("Proxy error: " + err.message, {
+      status: 502
+    });
+  }
 }
