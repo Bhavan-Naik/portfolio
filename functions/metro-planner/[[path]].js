@@ -4,12 +4,17 @@ export async function onRequest(context) {
 
   const targetBase = "https://metro-planner-do4a.onrender.com/";
 
-  // ALWAYS forward to root app
-  const targetURL = targetBase + url.pathname.replace("/metro-planner/blr", "");
+  const targetURL =
+    targetBase + url.pathname.replace("/metro-planner/blr", "");
 
-  return fetch(targetURL, {
+  const init = {
     method: request.method,
-    headers: request.headers,
-    body: request.method === "GET" ? undefined : request.body,
-  });
+  };
+
+  // ONLY attach body for non-GET/HEAD safely
+  if (request.method !== "GET" && request.method !== "HEAD") {
+    init.body = await request.arrayBuffer();
+  }
+
+  return fetch(targetURL, init);
 }
